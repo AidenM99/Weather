@@ -12,6 +12,7 @@
   "rules": {
     "no-console": "off",
     "no-alert": "off",
+    "import/no-cycle": "off",
     "prettier/prettier": [
       "error",
       {
