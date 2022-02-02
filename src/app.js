@@ -1,7 +1,7 @@
 async function getWeatherData(lat, lon) {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=64dc30bda68554f9c02fcdab98258346`,
+      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=64dc30bda68554f9c02fcdab98258346`,
       { mode: 'cors' }
     );
 
