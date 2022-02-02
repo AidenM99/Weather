@@ -1,33 +1,16 @@
-async function getWeatherData(lat, lon) {
-  try {
-    const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=64dc30bda68554f9c02fcdab98258346`,
-      { mode: 'cors' }
-    );
+import { format } from 'date-fns';
+import fromUnixTime from 'date-fns/fromUnixTime';
 
-    const weatherData = await response.json();
-
-    console.log(weatherData);
-  } catch (err) {
-    console.log(err);
-  }
+function getWeatherDesc(data) {
+  return data.current.weather[0].description;
 }
 
-export default async function getCity(city) {
-  try {
-    const response = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=64dc30bda68554f9c02fcdab98258346`,
-      { mode: 'cors' }
-    );
-
-    const cityData = await response.json();
-
-    const x = cityData[0].lat;
-
-    const y = cityData[0].lon;
-
-    getWeatherData(x, y);
-  } catch (err) {
-    console.log(err);
-  }
+function getTime(data) {
+  const convertFromUnix = fromUnixTime(data.current.dt + data.timezone_offset);
+  const newDate = format(new Date(convertFromUnix), 'MMMM/dd/yyyy');
+  console.log(newDate);
+  console.log(convertFromUnix.getHours());
+  console.log(convertFromUnix.getMinutes());
 }
+
+export { getWeatherDesc, getTime };
