@@ -1,16 +1,18 @@
-import { format } from 'date-fns';
 import fromUnixTime from 'date-fns/fromUnixTime';
 
-function getWeatherDesc(data) {
-  return data.current.weather[0].description;
+function capitalise(desc) {
+  if (desc.indexOf(' ') >= 0) {
+    return desc
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+      .join(' ');
+  }
+  return desc.charAt(0).toUpperCase() + desc.slice(1);
 }
 
-function getTime(data) {
-  const convertFromUnix = fromUnixTime(data.current.dt + data.timezone_offset);
-  const newDate = format(new Date(convertFromUnix), 'MMMM/dd/yyyy');
-  console.log(newDate);
-  console.log(convertFromUnix.getHours());
-  console.log(convertFromUnix.getMinutes());
+function getDate(time, offset) {
+  const date = fromUnixTime(time + offset).toUTCString();
+  return `${date.slice(0, 16)}, ${date.slice(17, 22)}`;
 }
 
-export { getWeatherDesc, getTime };
+export { capitalise, getDate };
