@@ -11,23 +11,45 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="search-container">
-      <input
-        type="search"
-        id="search"
-        name="search"
-        placeholder="City Search"
-      />
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-      </button>
-    </div>
+    <header>
+      <div class="search-container">
+        <input
+          type="search"
+          id="search"
+          name="search"
+          placeholder="City Search"
+          autocomplete="off"
+        />
+        <button type="submit" class="searchButton">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </header>
 
-    <div class="weather-data">
-      <h2 class="weather-desc"></h2>
-      <p class="time"></p>
-      <img class="weather-icon" src="" />
-    </div>
+    <main>
+      <div class="weather-data">
+        <div class="weather-data-top">
+          <div class="weather-desc-location">
+            <h2 class="weather-desc"></h2>
+            <h1 class="location"></h1>
+            <p class="time"></p>
+          </div>
+          <div class="icon-container">
+            <img class="weather-icon" src="" />
+          </div>
+        </div>
+        <div class="weather-data-bottom">
+          <div class="temperature-container">
+            <span class="temperature"></span>
+          </div>
+          <div class="condition-info">
+            <p class="feels-like"></p>
+            <p class="humidity"></p>
+            <p class="wind-speed"></p>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="main.js"></script>
   </body>
 </html>
