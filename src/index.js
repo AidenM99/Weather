@@ -1,4 +1,8 @@
 import './style.css';
 import domFunctions from './dom';
+import getCity from './api';
 
-domFunctions.citySearch();
+window.onload = () => {
+  getCity('London');
+  domFunctions.citySearch();
+};
