@@ -8,17 +8,34 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  padding: 10rem 15rem;
+  margin: 0;
+  padding: 0;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+main {
+  height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+}
+
+header {
+  padding: 10px;
 }
 
 .search-container {
-  width: 20%;
   display: flex;
+  justify-content: right;
 }
 
 #search {
   font-family: 'Montserrat', sans-serif;
-  width: 100%;
+  min-width: 300px;
+  max-width: 300px;
   border-right: none;
   padding: 5px;
   border: 3px solid var(--dark-bg);
@@ -52,4 +69,77 @@ input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   display: none;
+}
+
+.weather-data {
+  margin: -3.5rem 0 0 0;
+  padding: 0 5rem;
+}
+
+.location {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+.weather-desc {
+  font-size: 1.2rem;
+  margin: 0 0 -0.75rem 0;
+  padding: 0 0 0 0.2rem;
+}
+
+.temperature {
+  font-size: 8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.temperature::after {
+  content: '°C';
+  font-size: 1.5rem;
+  vertical-align: 300%;
+}
+
+.feels-like::after {
+  content: '°C';
+  font-size: 0.65rem;
+  vertical-align: 60%;
+}
+
+.weather-data-top {
+  display: flex;
+}
+
+.weather-data-bottom {
+  display: flex;
+}
+
+.condition-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.875rem 0 0 1.25rem;
+  padding: 0 0 0 1.875rem;
+  border-left: solid 3px #ffffff;
+  height: 5.625rem;
+}
+
+.condition-info > p {
+  margin: 0.4375rem 0;
+  font-weight: bold;
+}
+
+.icon-container {
+  margin: -0.3125rem 0 0 0.3125rem;
+}
+
+.weather-icon {
+  width: 100%;
+  height: auto;
+  color: #ffffff;
+}
+
+.time {
+  font-weight: bold;
+  padding: 0 0 0 0.2rem;
+  margin: -0.25rem 0 0 0;
 }
