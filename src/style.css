@@ -176,13 +176,14 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 .forecast > h3 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 0.5rem 0;
 }
 
 .forecast > p {
   margin: 0.5rem 0;
   font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .weather-forecast {
