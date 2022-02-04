@@ -28,6 +28,12 @@ const domFunctions = (() => {
     });
   }
 
+  function fetchWeatherData() {
+    const city = document.querySelector('.location').textContent;
+
+    getCity(city);
+  }
+
   function buttonController() {
     const forecastButtons = document.querySelectorAll('.forecast-button');
     forecastButtons.forEach((button) => {
@@ -36,11 +42,13 @@ const domFunctions = (() => {
           forecastButtons[i].classList.remove('selected-button');
         }
         e.target.classList.add('selected-button');
+        clearForecast();
+        fetchWeatherData();
       });
     });
   }
 
-  function renderWeatherForecast(data) {
+  function renderDailyForecast(data) {
     for (let i = 1; i < 8; i++) {
       const forecastContainer = document.querySelector('.weather-forecast');
 
@@ -67,7 +75,32 @@ const domFunctions = (() => {
       forecast.appendChild(temp);
       forecastContainer.appendChild(forecast);
     }
-    console.log(data);
+  }
+
+  function renderHourlyForecast(data) {
+    for (let i = 1; i < 8; i++) {
+      const forecastContainer = document.querySelector('.weather-forecast');
+
+      const forecast = document.createElement('div');
+      forecast.classList.add('forecast');
+
+      const day = document.createElement('h3');
+      day.textContent = getDate(data.hourly[i].dt, data.timezone_offset).slice(
+        17
+      );
+
+      const icon = document.createElement('img');
+      icon.classList.add('weather-icon');
+      icon.src = `http://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@2x.png`;
+
+      const temp = document.createElement('p');
+      temp.textContent = `${Math.round(data.hourly[i].temp)}°`;
+
+      forecast.appendChild(day);
+      forecast.appendChild(icon);
+      forecast.appendChild(temp);
+      forecastContainer.appendChild(forecast);
+    }
   }
 
   function renderWeatherData(data, city) {
@@ -96,8 +129,15 @@ const domFunctions = (() => {
 
     const windSpeed = document.querySelector('.wind-speed');
     windSpeed.textContent = `Wind: ${Math.round(data.current.wind_speed)} mph`;
+  }
 
-    renderWeatherForecast(data);
+  function forecastController(data) {
+    const hourlyButton = document.querySelector('.hourly');
+    if (hourlyButton.classList.contains('selected-button')) {
+      renderHourlyForecast(data);
+    } else {
+      renderDailyForecast(data);
+    }
   }
 
   function loadPage() {
@@ -110,6 +150,7 @@ const domFunctions = (() => {
     renderWeatherData,
     reportSearchError,
     loadPage,
+    forecastController,
   };
 })();
 
