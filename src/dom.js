@@ -2,10 +2,18 @@ import getCity from './api';
 import { formatText, getDate } from './app';
 
 const domFunctions = (() => {
+  function clearForecast() {
+    const weatherForecast = document.querySelector('.weather-forecast');
+    while (weatherForecast.firstChild) {
+      weatherForecast.removeChild(weatherForecast.lastChild);
+    }
+  }
+
   function citySearch() {
     const search = document.getElementById('search');
 
     search.addEventListener('search', () => {
+      clearForecast();
       getCity(search.value);
     });
   }
