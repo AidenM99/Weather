@@ -1,5 +1,5 @@
 import getCity from './api';
-import { capitalise, getDate } from './app';
+import { formatText, getDate } from './app';
 
 const domFunctions = (() => {
   function citySearch() {
@@ -12,10 +12,10 @@ const domFunctions = (() => {
 
   function renderWeatherData(data, city) {
     const weatherDesc = document.querySelector('.weather-desc');
-    weatherDesc.textContent = capitalise(data.current.weather[0].description);
+    weatherDesc.textContent = formatText(data.current.weather[0].description);
 
     const location = document.querySelector('.location');
-    location.textContent = capitalise(city);
+    location.textContent = formatText(city);
 
     const temperature = document.querySelector('.temperature');
     temperature.textContent = Math.round(data.current.temp);
