@@ -30,6 +30,7 @@ export default async function getCity(city) {
 
     getWeatherData(x, y, city);
   } catch (err) {
+    domFunctions.reportSearchError();
     console.log(err);
   }
 }

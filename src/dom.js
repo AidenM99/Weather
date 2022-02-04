@@ -10,6 +10,16 @@ const domFunctions = (() => {
     });
   }
 
+  function reportSearchError() {
+    const search = document.getElementById('search');
+
+    search.setCustomValidity('Please enter a valid city');
+    search.reportValidity();
+    search.addEventListener('input', () => {
+      search.setCustomValidity('');
+    });
+  }
+
   function renderWeatherData(data, city) {
     const weatherDesc = document.querySelector('.weather-desc');
     weatherDesc.textContent = formatText(data.current.weather[0].description);
@@ -38,7 +48,7 @@ const domFunctions = (() => {
     windSpeed.textContent = `Wind: ${Math.round(data.current.wind_speed)} mph`;
   }
 
-  return { citySearch, renderWeatherData };
+  return { citySearch, renderWeatherData, reportSearchError };
 })();
 
 export default domFunctions;
