@@ -27,7 +27,7 @@
     </header>
 
     <main>
-      <div class="weather-data">
+      <section id="weather-data">
         <div class="weather-data-top">
           <div class="weather-desc-location">
             <h2 class="weather-desc"></h2>
@@ -48,8 +48,16 @@
             <p class="wind-speed"></p>
           </div>
         </div>
-      </div>
+      </section>
     </main>
+
+    <section id="forecast">
+      <div class="forecast-button-container">
+        <button class="forecast-button hourly selected-button">Hourly</button>
+        <button class="forecast-button daily">Daily</button>
+      </div>
+      <div class="weather-forecast"></div>
+    </section>
     <script src="main.js"></script>
   </body>
 </html>
