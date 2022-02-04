@@ -13,6 +13,7 @@
     "no-console": "off",
     "no-alert": "off",
     "import/no-cycle": "off",
+    "no-plusplus": "off",
     "prettier/prettier": [
       "error",
       {
