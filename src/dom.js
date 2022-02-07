@@ -36,14 +36,40 @@ const domFunctions = (() => {
 
   function buttonController() {
     const forecastButtons = document.querySelectorAll('.forecast-button');
+    const arrowButtons = document.querySelectorAll('.arrow');
+
     forecastButtons.forEach((button) => {
       button.addEventListener('click', (e) => {
         for (let i = 0; i < 2; i++) {
           forecastButtons[i].classList.remove('selected-button');
         }
+
         e.target.classList.add('selected-button');
         clearForecast();
         fetchWeatherData();
+      });
+    });
+
+    arrowButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        for (let i = 0; i < 3; i++) {
+          const circleButton = document.querySelectorAll('.circle');
+          let j = i;
+          if (circleButton[i].classList.contains('circle-active')) {
+            if (button.classList.contains('fa-chevron-right')) {
+              if (i === 2) j = -1;
+              circleButton[j + 1].classList.add('circle-active');
+            } else {
+              if (i === 0) j = 3;
+              circleButton[j - 1].classList.add('circle-active');
+            }
+
+            circleButton[i].classList.remove('circle-active');
+            clearForecast();
+            fetchWeatherData();
+            break;
+          }
+        }
       });
     });
   }
@@ -77,8 +103,17 @@ const domFunctions = (() => {
     }
   }
 
-  function renderHourlyForecast(data) {
-    for (let i = 1; i < 8; i++) {
+  function renderHourlyForecast(data, activeButton) {
+    let j;
+    if (activeButton === 'circle1') {
+      j = 1;
+    } else if (activeButton === 'circle2') {
+      j = 9;
+    } else if (activeButton === 'circle3') {
+      j = 17;
+    }
+
+    for (let i = j; i < j + 8; i++) {
       const forecastContainer = document.querySelector('.weather-forecast');
 
       const forecast = document.createElement('div');
@@ -131,12 +166,25 @@ const domFunctions = (() => {
     windSpeed.textContent = `Wind: ${Math.round(data.current.wind_speed)} mph`;
   }
 
-  function forecastController(data) {
+  function getActiveButton() {
+    const circleButton = document.querySelectorAll('.circle');
+    let activeButton;
+    for (let i = 0; i < circleButton.length; i++) {
+      if (circleButton[i].classList.contains('circle-active')) {
+        activeButton = circleButton[i].id;
+      }
+    }
+    return activeButton;
+  }
+
+  function forecastNavController(data) {
     const hourlyButton = document.querySelector('.hourly');
     if (hourlyButton.classList.contains('selected-button')) {
-      renderHourlyForecast(data);
+      renderHourlyForecast(data, getActiveButton());
+      document.querySelector('.forecast-arrows').style.display = 'flex';
     } else {
       renderDailyForecast(data);
+      document.querySelector('.forecast-arrows').style.display = 'none';
     }
   }
 
@@ -150,7 +198,7 @@ const domFunctions = (() => {
     renderWeatherData,
     reportSearchError,
     loadPage,
-    forecastController,
+    forecastNavController,
   };
 })();
 
