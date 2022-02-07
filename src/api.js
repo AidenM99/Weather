@@ -9,8 +9,8 @@ async function getWeatherData(lat, lon, city) {
 
     const weatherData = await response.json();
 
-    domFunctions.renderWeatherData(weatherData, city);
-    domFunctions.forecastNavController(weatherData);
+    domFunctions.renderData(weatherData, city);
+    domFunctions.forecastNavController();
   } catch (err) {
     console.log(err);
   }

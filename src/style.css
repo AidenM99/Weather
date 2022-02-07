@@ -192,6 +192,20 @@ input[type='search']::-webkit-search-results-decoration {
   margin-top: 1.2rem;
 }
 
+.daily-forecast,
+.hourly-forecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+}
+
+.daily-forecast > div,
+.hourly-forecast > div {
+  background-color: transparent;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .circle {
   height: 5px;
   width: 5px;

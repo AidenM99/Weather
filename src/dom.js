@@ -3,9 +3,16 @@ import { formatText, getDate } from './app';
 
 const domFunctions = (() => {
   function clearForecast() {
-    const weatherForecast = document.querySelector('.weather-forecast');
-    while (weatherForecast.firstChild) {
-      weatherForecast.removeChild(weatherForecast.lastChild);
+    const dailyForecast = document.querySelector('.daily-forecast');
+    while (dailyForecast.firstChild) {
+      dailyForecast.removeChild(dailyForecast.lastChild);
+    }
+
+    const hourlyForecast = document.querySelectorAll('.hourly-forecast');
+    for (let i = 0; i < hourlyForecast.length; i++) {
+      while (hourlyForecast[i].firstChild) {
+        hourlyForecast[i].removeChild(hourlyForecast[i].lastChild);
+      }
     }
   }
 
@@ -13,8 +20,8 @@ const domFunctions = (() => {
     const search = document.getElementById('search');
 
     search.addEventListener('search', () => {
-      clearForecast();
       getCity(search.value);
+      clearForecast();
     });
   }
 
@@ -28,10 +35,35 @@ const domFunctions = (() => {
     });
   }
 
-  function fetchWeatherData() {
-    const city = document.querySelector('.location').textContent;
+  function getActiveButton() {
+    const circleButton = document.querySelectorAll('.circle');
+    let activeButton;
+    for (let i = 0; i < circleButton.length; i++) {
+      if (circleButton[i].classList.contains('circle-active')) {
+        activeButton = circleButton[i].id;
+      }
+    }
+    return activeButton;
+  }
 
-    getCity(city);
+  function forecastNavController() {
+    const hourlyButton = document.querySelector('.hourly');
+    const dailyForecast = document.querySelector('.daily-forecast');
+    const hourlyForecast = document.querySelectorAll('.hourly-forecast');
+    const forecastArrows = document.querySelector('.forecast-arrows');
+
+    for (let i = 0; i < hourlyForecast.length; i++) {
+      hourlyForecast[i].style.display = 'none';
+    }
+
+    if (hourlyButton.classList.contains('selected-button')) {
+      document.querySelector(`.${getActiveButton()}`).style.display = 'flex';
+      forecastArrows.style.display = 'flex';
+      dailyForecast.style.display = 'none';
+    } else {
+      forecastArrows.style.display = 'none';
+      dailyForecast.style.display = 'flex';
+    }
   }
 
   function buttonController() {
@@ -45,8 +77,7 @@ const domFunctions = (() => {
         }
 
         e.target.classList.add('selected-button');
-        clearForecast();
-        fetchWeatherData();
+        forecastNavController();
       });
     });
 
@@ -65,8 +96,7 @@ const domFunctions = (() => {
             }
 
             circleButton[i].classList.remove('circle-active');
-            clearForecast();
-            fetchWeatherData();
+            forecastNavController();
             break;
           }
         }
@@ -76,7 +106,7 @@ const domFunctions = (() => {
 
   function renderDailyForecast(data) {
     for (let i = 1; i < 8; i++) {
-      const forecastContainer = document.querySelector('.weather-forecast');
+      const forecastContainer = document.querySelector('.daily-forecast');
 
       const forecast = document.createElement('div');
       forecast.classList.add('forecast');
@@ -103,18 +133,11 @@ const domFunctions = (() => {
     }
   }
 
-  function renderHourlyForecast(data, activeButton) {
-    let j;
-    if (activeButton === 'circle1') {
-      j = 1;
-    } else if (activeButton === 'circle2') {
-      j = 9;
-    } else if (activeButton === 'circle3') {
-      j = 17;
-    }
-
-    for (let i = j; i < j + 8; i++) {
-      const forecastContainer = document.querySelector('.weather-forecast');
+  function renderHourlyForecast(data) {
+    for (let i = 1; i < 25; i++) {
+      const dailyForecastOne = document.querySelector('.one');
+      const dailyForecastTwo = document.querySelector('.two');
+      const dailyForecastThree = document.querySelector('.three');
 
       const forecast = document.createElement('div');
       forecast.classList.add('forecast');
@@ -134,7 +157,13 @@ const domFunctions = (() => {
       forecast.appendChild(day);
       forecast.appendChild(icon);
       forecast.appendChild(temp);
-      forecastContainer.appendChild(forecast);
+      if (i < 9) {
+        dailyForecastOne.appendChild(forecast);
+      } else if (i < 17 && i >= 9) {
+        dailyForecastTwo.appendChild(forecast);
+      } else {
+        dailyForecastThree.appendChild(forecast);
+      }
     }
   }
 
@@ -166,26 +195,10 @@ const domFunctions = (() => {
     windSpeed.textContent = `Wind: ${Math.round(data.current.wind_speed)} mph`;
   }
 
-  function getActiveButton() {
-    const circleButton = document.querySelectorAll('.circle');
-    let activeButton;
-    for (let i = 0; i < circleButton.length; i++) {
-      if (circleButton[i].classList.contains('circle-active')) {
-        activeButton = circleButton[i].id;
-      }
-    }
-    return activeButton;
-  }
-
-  function forecastNavController(data) {
-    const hourlyButton = document.querySelector('.hourly');
-    if (hourlyButton.classList.contains('selected-button')) {
-      renderHourlyForecast(data, getActiveButton());
-      document.querySelector('.forecast-arrows').style.display = 'flex';
-    } else {
-      renderDailyForecast(data);
-      document.querySelector('.forecast-arrows').style.display = 'none';
-    }
+  function renderData(data, city) {
+    renderWeatherData(data, city);
+    renderDailyForecast(data);
+    renderHourlyForecast(data);
   }
 
   function loadPage() {
@@ -195,10 +208,10 @@ const domFunctions = (() => {
   }
 
   return {
-    renderWeatherData,
-    reportSearchError,
-    loadPage,
     forecastNavController,
+    reportSearchError,
+    renderData,
+    loadPage,
   };
 })();
 
