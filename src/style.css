@@ -191,3 +191,31 @@ input[type='search']::-webkit-search-results-decoration {
   justify-content: space-between;
   margin-top: 1.2rem;
 }
+
+.circle {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+  margin: 0.0625rem 0.25rem 0 0.25rem;
+  cursor: pointer;
+}
+
+.circle-active {
+  background-color: #ffffff;
+}
+
+.arrow {
+  margin: 0 0.25rem;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.forecast-arrows {
+  display: flex;
+  align-items: center;
+}
+
+.forecast-container {
+  display: flex;
+}

@@ -52,9 +52,18 @@
     </main>
 
     <section id="forecast">
-      <div class="forecast-button-container">
-        <button class="forecast-button hourly selected-button">Hourly</button>
-        <button class="forecast-button daily">Daily</button>
+      <div class="forecast-container">
+        <div class="forecast-buttons">
+          <button class="forecast-button daily selected-button">Daily</button>
+          <button class="forecast-button hourly">Hourly</button>
+        </div>
+        <div class="forecast-arrows">
+          <i class="fas fa-chevron-left arrow"></i>
+          <div id="circle1" class="circle circle-active"></div>
+          <div id="circle2" class="circle"></div>
+          <div id="circle3" class="circle"></div>
+          <i class="fas fa-chevron-right arrow"></i>
+        </div>
       </div>
       <div class="weather-forecast"></div>
     </section>
