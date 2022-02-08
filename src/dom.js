@@ -177,9 +177,6 @@ const domFunctions = (() => {
     const temperature = document.querySelector('.temperature');
     temperature.textContent = Math.round(data.current.temp);
 
-    const weatherIcon = document.querySelector('.weather-icon');
-    weatherIcon.src = `http://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`;
-
     const time = document.querySelector('.time');
     time.textContent = getDate(data.current.dt, data.timezone_offset);
 

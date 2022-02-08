@@ -9,13 +9,13 @@
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-  padding: 0 5rem;
+  padding: 0 5%;
   background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   color: #ffffff;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #weather-data {
@@ -123,7 +123,7 @@ input[type='search']::-webkit-search-results-decoration {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1.875rem 0 0 1.25rem;
+  margin: 1.875rem 1.25rem 0 1.25rem;
   padding: 0 0 0 1.875rem;
   border-left: solid 3px #ffffff;
   height: 5.625rem;
@@ -134,14 +134,11 @@ input[type='search']::-webkit-search-results-decoration {
   font-weight: bold;
 }
 
-.icon-container {
-  margin: -0.3125rem 0 0 0.3125rem;
-}
-
 .weather-icon {
+  color: #ffffff;
   width: 100%;
   height: auto;
-  color: #ffffff;
+  margin-top: 1rem;
 }
 
 .time {
@@ -176,14 +173,14 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 .forecast > h3 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0.5rem 0;
 }
 
 .forecast > p {
   margin: 0.5rem 0;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .weather-forecast {
@@ -232,4 +229,77 @@ input[type='search']::-webkit-search-results-decoration {
 
 .forecast-container {
   display: flex;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 13px;
+  }
+
+  .search-container {
+    justify-content: center;
+  }
+
+  #weather-data {
+    margin-bottom: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  #weather-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weather-data-top {
+    margin-right: 8.3rem;
+  }
+
+  .daily-forecast {
+    flex-direction: column;
+  }
+
+  .forecast-container {
+    justify-content: center;
+  }
+
+  .hourly-forecast {
+    flex-direction: column;
+  }
+
+  .forecast {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .forecast > h3 {
+    width: 4.2rem;
+  }
+
+  .forecast > p {
+    width: 4.2rem;
+  }
+
+  .forecast > img {
+    width: 20%;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    font-size: 9px;
+  }
+
+  .forecast-button {
+    max-width: 60px;
+    min-width: 60px;
+  }
+
+  #search {
+    max-width: 205px;
+    min-width: 205px;
+  }
 }
