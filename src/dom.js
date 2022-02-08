@@ -19,13 +19,16 @@ const domFunctions = (() => {
   function citySearch() {
     const search = document.getElementById('search');
     const searchIcon = document.querySelector('.search-button');
+    const location = document.querySelector('.location');
 
     search.addEventListener('search', () => {
+      if (search.value === location.textContent) return;
       getCity(search.value);
       clearForecast();
     });
 
     searchIcon.addEventListener('click', () => {
+      if (search.value === location.textContent) return;
       getCity(search.value);
       clearForecast();
     });
