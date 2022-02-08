@@ -31,6 +31,7 @@ const domFunctions = (() => {
     });
   }
 
+  // If API cannot find city name
   function reportSearchError() {
     const search = document.getElementById('search');
 
@@ -41,6 +42,7 @@ const domFunctions = (() => {
     });
   }
 
+  // Find which circle is highlighted to determine hour range to display for hourly forecast
   function getActiveButton() {
     const circleButton = document.querySelectorAll('.circle');
     let activeButton;
@@ -52,6 +54,7 @@ const domFunctions = (() => {
     return activeButton;
   }
 
+  // 'Daily' and 'Hourly' button controller
   function forecastNavController() {
     const hourlyButton = document.querySelector('.hourly');
     const dailyForecast = document.querySelector('.daily-forecast');
@@ -87,6 +90,7 @@ const domFunctions = (() => {
       });
     });
 
+    // Add class to correct circle icon when arrow icon is clicked
     arrowButtons.forEach((button) => {
       button.addEventListener('click', () => {
         for (let i = 0; i < 3; i++) {
@@ -94,10 +98,10 @@ const domFunctions = (() => {
           let j = i;
           if (circleButton[i].classList.contains('circle-active')) {
             if (button.classList.contains('fa-chevron-right')) {
-              if (i === 2) j = -1;
+              if (i === 2) j = -1; // If last circle icon is selected, cycle to the beginning
               circleButton[j + 1].classList.add('circle-active');
             } else {
-              if (i === 0) j = 3;
+              if (i === 0) j = 3; // If first circle icon is selected, cycle to the end
               circleButton[j - 1].classList.add('circle-active');
             }
 
@@ -141,9 +145,9 @@ const domFunctions = (() => {
 
   function renderHourlyForecast(data) {
     for (let i = 1; i < 25; i++) {
-      const dailyForecastOne = document.querySelector('.one');
-      const dailyForecastTwo = document.querySelector('.two');
-      const dailyForecastThree = document.querySelector('.three');
+      const HourlyForecastOne = document.querySelector('.one');
+      const HourlyForecastTwo = document.querySelector('.two');
+      const HourlyForecastThree = document.querySelector('.three');
 
       const forecast = document.createElement('div');
       forecast.classList.add('forecast');
@@ -163,12 +167,14 @@ const domFunctions = (() => {
       forecast.appendChild(day);
       forecast.appendChild(icon);
       forecast.appendChild(temp);
+
+      // If hourly forecast container is holding 8 items, append to the next one
       if (i < 9) {
-        dailyForecastOne.appendChild(forecast);
+        HourlyForecastOne.appendChild(forecast);
       } else if (i < 17 && i >= 9) {
-        dailyForecastTwo.appendChild(forecast);
+        HourlyForecastTwo.appendChild(forecast);
       } else {
-        dailyForecastThree.appendChild(forecast);
+        HourlyForecastThree.appendChild(forecast);
       }
     }
   }
