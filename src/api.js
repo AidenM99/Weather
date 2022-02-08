@@ -19,7 +19,7 @@ async function getWeatherData(lat, lon, city) {
 export default async function getCity(city) {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=64dc30bda68554f9c02fcdab98258346`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=64dc30bda68554f9c02fcdab98258346`,
       { mode: 'cors' }
     );
 

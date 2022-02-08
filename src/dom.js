@@ -129,7 +129,7 @@ const domFunctions = (() => {
 
       const icon = document.createElement('img');
       icon.classList.add('weather-icon');
-      icon.src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
+      icon.src = `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
 
       const temp = document.createElement('p');
       temp.textContent = `${Math.round(data.daily[i].temp.max)}°/${Math.round(
@@ -159,7 +159,7 @@ const domFunctions = (() => {
 
       const icon = document.createElement('img');
       icon.classList.add('weather-icon');
-      icon.src = `http://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@2x.png`;
+      icon.src = `https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@2x.png`;
 
       const temp = document.createElement('p');
       temp.textContent = `${Math.round(data.hourly[i].temp)}°`;
