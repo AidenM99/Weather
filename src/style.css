@@ -54,6 +54,7 @@ header {
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
+  -webkit-appearance: none;
 }
 
 input[type='search']::-ms-clear {
@@ -71,6 +72,7 @@ input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   display: none;
+  -webkit-appearance: none;
 }
 
 /*****Main Section*****/
