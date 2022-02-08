@@ -18,7 +18,7 @@ const domFunctions = (() => {
 
   function citySearch() {
     const search = document.getElementById('search');
-    const searchIcon = document.querySelector('.fa-search');
+    const searchIcon = document.querySelector('.search-button');
 
     search.addEventListener('search', () => {
       getCity(search.value);
