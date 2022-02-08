@@ -18,8 +18,14 @@ const domFunctions = (() => {
 
   function citySearch() {
     const search = document.getElementById('search');
+    const searchIcon = document.querySelector('.fa-search');
 
     search.addEventListener('search', () => {
+      getCity(search.value);
+      clearForecast();
+    });
+
+    searchIcon.addEventListener('click', () => {
       getCity(search.value);
       clearForecast();
     });
