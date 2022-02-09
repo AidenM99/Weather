@@ -7,7 +7,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-  padding: 0 5%;
   background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -61,11 +60,13 @@ input[type='search']::-ms-clear {
   width: 0;
   height: 0;
 }
+
 input[type='search']::-ms-reveal {
   display: none;
   width: 0;
   height: 0;
 }
+
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
@@ -73,15 +74,18 @@ input[type='search']::-webkit-search-results-decoration {
   display: none;
 }
 
-input, button {
+input[type='search'],
+button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  }
+  box-sizing: padding-box;
+}
 
 /*****Main Section*****/
 #weather-data {
   margin: 10% 0 5% 0;
+  padding: 0 5%;
 }
 
 .weather-data-top {
@@ -94,8 +98,8 @@ input, button {
 
 .weather-desc {
   font-size: 1.2rem;
-  margin: 0 0 -0.25rem 0;
-  padding: 0 0 0 0.2rem;
+  margin: 0 0 -0.6rem 0;
+  padding: 0 0 0 0.1rem;
 }
 
 .location {
@@ -137,21 +141,24 @@ input, button {
 }
 
 .time {
-  font-weight: bold;
+  font-size: 1.2rem;
   padding: 0 0 0 0.2rem;
-  margin: -0.25rem 0 0 0;
+  margin: -0.5rem 0 0 0;
+}
+
+.icon-container {
+  margin: -0.3125rem 0 0 0;
 }
 
 /*****Forecast Section*****/
 #forecast {
-  margin: 2% 0 0 0;
+  padding: 0 5%;
 }
 
 .weather-icon {
   color: #ffffff;
   width: 100%;
   height: auto;
-  margin-top: 1rem;
 }
 
 .forecast-button {
@@ -249,27 +256,29 @@ input, button {
   }
 
   #weather-data {
-    margin-bottom: 10%;
-  }
-}
-
-@media (max-width: 480px) {
-  #weather-data {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
   .weather-data-top {
-    margin-right: 8.3rem;
+    text-align: center;
+    flex-direction: column-reverse;
   }
 
+  .icon-container {
+    width: 100%;
+    margin-bottom: -1.5rem;
+  }
+
+  .icon-container .weather-icon {
+    width: 6.25rem;
+  }
+}
+
+@media (max-width: 480px) {
   .daily-forecast {
     flex-direction: column;
-  }
-
-  .forecast-container {
-    justify-content: center;
   }
 
   .hourly-forecast {
@@ -280,6 +289,10 @@ input, button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .forecast-container {
+    justify-content: center;
   }
 
   .forecast > h3 {
