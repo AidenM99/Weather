@@ -40,6 +40,7 @@ header {
 .search-container {
   display: flex;
   justify-content: right;
+  -webkit-justify-content: right;
 }
 
 .search-button {
@@ -78,7 +79,6 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  
 }
 
 /*****Main Section*****/
@@ -273,6 +273,14 @@ button {
   .icon-container .weather-icon {
     width: 6.25rem;
   }
+
+  #search {
+    border-radius: 5px;
+  }
+
+  .search-button {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -319,7 +327,7 @@ button {
   }
 
   #search {
-    max-width: 205px;
-    min-width: 205px;
+    max-width: 240px;
+    min-width: 240px;
   }
 }
