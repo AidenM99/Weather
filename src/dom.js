@@ -22,13 +22,17 @@ const domFunctions = (() => {
     const location = document.querySelector('.location');
 
     search.addEventListener('search', () => {
-      if (search.value === location.textContent) return;
+      if (search.value.toLowerCase() === location.textContent.toLowerCase()) {
+        return;
+      }
       getCity(search.value);
       clearForecast();
     });
 
     searchIcon.addEventListener('click', () => {
-      if (search.value === location.textContent) return;
+      if (search.value.toLowerCase() === location.textContent.toLowerCase()) {
+        return;
+      }
       getCity(search.value);
       clearForecast();
     });
