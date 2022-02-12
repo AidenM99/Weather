@@ -18,7 +18,7 @@ body {
 /*****Header*****/
 header {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
   margin: 1rem;
 }
 
@@ -31,6 +31,7 @@ header {
   flex: 0.95;
   color: #ffffff;
   font-weight: bold;
+  margin: 0;
 }
 
 #search::placeholder {
@@ -56,6 +57,7 @@ header {
   font-size: 20px;
   padding: 0 13px;
   flex: 0.05;
+  margin: 0;
 }
 
 input[type='search']::-ms-clear {
