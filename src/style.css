@@ -19,7 +19,7 @@ body {
 header {
   display: flex;
   justify-content: right;
-  margin: 1rem; 
+  margin: 1rem;
 }
 
 #search {
@@ -75,6 +75,7 @@ input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   display: none;
+  -webkit-appearance: none;
 }
 
 input[type='search'],
