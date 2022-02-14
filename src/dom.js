@@ -186,6 +186,17 @@ const domFunctions = (() => {
     }
   }
 
+  function changeBackground(data) {
+    const time = data.split(',')[2].slice(0, 3);
+    const body = document.getElementsByTagName('body')[0];
+
+    if (time < 19 && time > 5) {
+      body.style.backgroundImage = 'url(images/background-day.png)';
+    } else {
+      body.style.backgroundImage = 'url(images/background-night.png)';
+    }
+  }
+
   function renderWeatherData(data, city) {
     const weatherDesc = document.querySelector('.weather-desc');
     weatherDesc.textContent = formatText(data.current.weather[0].description);
@@ -212,6 +223,8 @@ const domFunctions = (() => {
 
     const windSpeed = document.querySelector('.wind-speed');
     windSpeed.textContent = `Wind: ${Math.round(data.current.wind_speed)} mph`;
+
+    changeBackground(time.textContent);
   }
 
   function renderData(data, city) {
