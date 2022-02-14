@@ -7,7 +7,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-  background-image: url('../images/background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -16,7 +15,7 @@ body {
 }
 
 /*****Header*****/
-header {
+#header {
   display: flex;
   justify-content: flex-end;
   margin: 1rem;
@@ -89,8 +88,7 @@ button {
 
 /*****Main Section*****/
 #weather-data {
-  margin: 6.5% 0 2% 0;
-  padding: 0 5%;
+  margin: 8% 5% 5%;
 }
 
 .weather-data-top {
@@ -153,18 +151,18 @@ button {
 
 .icon-container {
   margin: -0.3125rem 0 0 0;
+  padding: 5px 0 0 0;
 }
 
 /*****Forecast Section*****/
 #forecast {
-  padding: 2% 5%;
+  margin: 0 5% 2%;
 }
 
 .weather-icon {
   color: #ffffff;
   width: 100%;
   height: auto;
-  padding: 5px 0 0 0;
 }
 
 .forecast-button {
@@ -204,11 +202,11 @@ button {
 
 .forecast > h3 {
   font-size: 1.3rem;
-  margin: 0.5rem 0;
+  margin: 0;
 }
 
 .forecast > p {
-  margin: 0.5rem 0;
+  margin: 0;
   font-weight: bold;
   font-size: 1.3rem;
 }
@@ -217,7 +215,7 @@ button {
 .hourly-forecast {
   display: flex;
   justify-content: space-between;
-  margin-top: 1.2rem;
+  margin: 3% 0 0 0;
 }
 
 .daily-forecast > div,
@@ -252,9 +250,15 @@ button {
 }
 
 /*****Media Query Breakpoints*****/
+@media (max-width: 950px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   header {
@@ -265,6 +269,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 2% 0 2% 0;
   }
 
   .weather-data-top {
