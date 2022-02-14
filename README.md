@@ -12,4 +12,4 @@ A weather app using the Open Weather Map API.
 - Show the current time and date for the target location
 - A description of the forecast and unique weather symbols to match
 
-![](./images/WeatherApp.png)
+![](./dist/images/WeatherApp.png)
