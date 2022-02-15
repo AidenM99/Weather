@@ -34,11 +34,13 @@ const domFunctions = (() => {
     search.addEventListener('search', () => {
       getCity(search.value, getUnit());
       clearForecast();
+      search.value = '';
     });
 
     searchIcon.addEventListener('click', () => {
       getCity(search.value, getUnit());
       clearForecast();
+      search.value = '';
     });
   }
 
