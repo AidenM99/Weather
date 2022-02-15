@@ -16,24 +16,28 @@ const domFunctions = (() => {
     }
   }
 
+  function getUnit() {
+    const temperatureContainer = document.querySelector(
+      '.temperature-converter'
+    );
+
+    if (temperatureContainer.classList.contains('celsius-active')) {
+      return 'metric';
+    }
+    return 'imperial';
+  }
+
   function citySearch() {
     const search = document.getElementById('search');
     const searchIcon = document.querySelector('.search-button');
-    const location = document.querySelector('.location');
 
     search.addEventListener('search', () => {
-      if (search.value.toLowerCase() === location.textContent.toLowerCase()) {
-        return;
-      }
-      getCity(search.value);
+      getCity(search.value, getUnit());
       clearForecast();
     });
 
     searchIcon.addEventListener('click', () => {
-      if (search.value.toLowerCase() === location.textContent.toLowerCase()) {
-        return;
-      }
-      getCity(search.value);
+      getCity(search.value, getUnit());
       clearForecast();
     });
   }
@@ -122,6 +126,7 @@ const domFunctions = (() => {
   }
 
   function renderDailyForecast(data) {
+    console.log(data);
     for (let i = 1; i < 8; i++) {
       const forecastContainer = document.querySelector('.daily-forecast');
 
@@ -190,8 +195,12 @@ const domFunctions = (() => {
     const time = data.split(',')[2].slice(0, 3);
     const body = document.getElementsByTagName('body')[0];
 
-    if (time < 19 && time > 5) {
+    if (time > 5 && time < 12) {
+      body.style.backgroundImage = 'url(images/background-dawn.png)';
+    } else if (time > 11 && time < 18) {
       body.style.backgroundImage = 'url(images/background-day.png)';
+    } else if (time > 17 && time < 22) {
+      body.style.backgroundImage = 'url(images/background-dusk.png)';
     } else {
       body.style.backgroundImage = 'url(images/background-night.png)';
     }
@@ -227,6 +236,36 @@ const domFunctions = (() => {
     changeBackground(time.textContent);
   }
 
+  function temperatureConverter(e) {
+    const location = document.querySelector('.location').textContent;
+    const temp = document.querySelector('.temperature-converter');
+    const feelsLikeUnit = document.querySelector('.feels-like-unit');
+    const unit = document.querySelector('.unit');
+
+    temp.classList.remove('celsius-active', 'farenheit-active');
+
+    if (e.target.classList.contains('celsius')) {
+      temp.classList.add('celsius-active');
+      unit.textContent = '°C';
+      feelsLikeUnit.textContent = '°C';
+    } else {
+      temp.classList.add('farenheit-active');
+      unit.textContent = '°F';
+      feelsLikeUnit.textContent = '°F';
+    }
+
+    getCity(location, getUnit());
+    clearForecast();
+  }
+
+  function temperatureController() {
+    const temp = document.querySelector('.temperature-converter');
+
+    temp.addEventListener('click', (e) => {
+      temperatureConverter(e);
+    });
+  }
+
   function renderData(data, city) {
     renderWeatherData(data, city);
     renderDailyForecast(data);
@@ -235,8 +274,9 @@ const domFunctions = (() => {
 
   function loadPage() {
     citySearch();
-    getCity('London');
+    getCity('London', getUnit());
     buttonController();
+    temperatureController();
   }
 
   return {
