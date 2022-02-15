@@ -14,6 +14,10 @@
     <!-----Header Section----->
     <header>
       <section id="header">
+        <div class="temperature-converter celsius-active">
+          <button class="celsius">°C</button>
+          <button class="farenheit">°F</button>
+        </div>
         <div class="search-container">
           <input
             type="search"
@@ -33,7 +37,7 @@
     <main>
       <section id="weather-data">
         <div class="weather-data-top">
-          <div class="weather-desc-location">
+          <div class="weather-details">
             <p class="weather-desc"></p>
             <h1 class="location"></h1>
             <p class="time"></p>
@@ -45,9 +49,13 @@
         <div class="weather-data-bottom">
           <div class="temperature-container">
             <span class="temperature"></span>
+            <span class="unit">°C</span>
           </div>
           <div class="condition-info">
-            <p class="feels-like"></p>
+            <div class="feels-like-container">
+              <p class="feels-like"></p>
+              <span class="feels-like-unit">°C</span>
+            </div>
             <p class="humidity"></p>
             <p class="wind-speed"></p>
           </div>
