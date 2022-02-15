@@ -126,7 +126,6 @@ const domFunctions = (() => {
   }
 
   function renderDailyForecast(data) {
-    console.log(data);
     for (let i = 1; i < 8; i++) {
       const forecastContainer = document.querySelector('.daily-forecast');
 
