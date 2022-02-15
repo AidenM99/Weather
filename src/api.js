@@ -1,9 +1,9 @@
 import domFunctions from './dom';
 
-async function getWeatherData(lat, lon, city) {
+async function getWeatherData(lat, lon, city, unit) {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=metric&appid=64dc30bda68554f9c02fcdab98258346`,
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,alerts&units=${unit}&appid=64dc30bda68554f9c02fcdab98258346`,
       { mode: 'cors' }
     );
 
@@ -16,7 +16,7 @@ async function getWeatherData(lat, lon, city) {
   }
 }
 
-export default async function getCity(city) {
+export default async function getCity(city, unit) {
   try {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=64dc30bda68554f9c02fcdab98258346`,
@@ -29,7 +29,7 @@ export default async function getCity(city) {
 
     const y = cityData.coord.lon;
 
-    getWeatherData(x, y, city);
+    getWeatherData(x, y, city, unit);
   } catch (err) {
     domFunctions.reportSearchError();
     console.log(err);
