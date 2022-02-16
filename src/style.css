@@ -207,7 +207,7 @@ button {
 
 /*****Forecast Section*****/
 #forecast {
-  margin: 0 5% 2%;
+  margin: 0 5% 1rem;
 }
 
 .weather-icon {
@@ -315,6 +315,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5%;
   }
 
   .weather-data-top {
