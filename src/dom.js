@@ -199,7 +199,7 @@ const domFunctions = (() => {
     if (time > 5 && time < 12) {
       body.style.backgroundImage = 'url(images/background-dawn.png)';
     } else if (time > 11 && time < 18) {
-      body.style.backgroundImage = 'url(images/background-day.png)';
+      body.style.backgroundImage = 'url(images/background-day.jpg)';
     } else if (time > 17 && time < 22) {
       body.style.backgroundImage = 'url(images/background-dusk.png)';
     } else {

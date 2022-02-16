@@ -11,14 +11,21 @@ body {
   background-size: cover;
   background-position: center;
   color: #ffffff;
-  min-height: calc(100vh - 1rem);
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 /*****Header*****/
 #header {
   display: flex;
   justify-content: flex-end;
-  margin: 1rem;
+  margin: 1rem 1rem 0;
 }
 
 #search {
@@ -123,7 +130,7 @@ button {
 
 /*****Main Section*****/
 #weather-data {
-  margin: 8% 5% 5%;
+  margin: 0 5%;
 }
 
 .weather-data-top {
@@ -308,7 +315,6 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2% 0 2% 0;
   }
 
   .weather-data-top {
@@ -327,6 +333,10 @@ button {
 }
 
 @media (max-width: 480px) {
+  #weather-data {
+    margin: 10% 5%;
+  }
+
   .search-container {
     max-width: 300px;
     min-width: 300px;
@@ -371,16 +381,16 @@ button {
     align-items: center;
   }
 
-  .forecast-container {
-    justify-content: center;
-  }
-
   .forecast > h3 {
     width: 4.2rem;
   }
 
   .forecast > p {
     width: 4.2rem;
+  }
+
+  .forecast-container {
+    justify-content: center;
   }
 
   .forecast > img {
@@ -402,10 +412,6 @@ button {
   .search-container {
     max-width: 260px;
     min-width: 260px;
-  }
-
-  .search-button {
-    padding: 8px;
   }
 
   .forecast-button {
