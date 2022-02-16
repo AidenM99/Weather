@@ -11,78 +11,80 @@
     <title>Weather App</title>
   </head>
   <body>
-    <!-----Header Section----->
-    <header>
-      <section id="header">
-        <div class="temperature-converter celsius-active">
-          <button class="celsius">°C</button>
-          <button class="farenheit">°F</button>
-        </div>
-        <div class="search-container">
-          <input
-            type="search"
-            id="search"
-            name="search"
-            placeholder="City Search"
-            autocomplete="off"
-          />
-          <button type="submit" class="search-button">
-            <i class="fa fa-search"></i>
-          </button>
-        </div>
-      </section>
-    </header>
+    <div class="container">
+      <!-----Header Section----->
+      <header>
+        <section id="header">
+          <div class="temperature-converter celsius-active">
+            <button class="celsius">°C</button>
+            <button class="farenheit">°F</button>
+          </div>
+          <div class="search-container">
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="City Search"
+              autocomplete="off"
+            />
+            <button type="submit" class="search-button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </section>
+      </header>
 
-    <!-----Main Section----->
-    <main>
-      <section id="weather-data">
-        <div class="weather-data-top">
-          <div class="weather-details">
-            <p class="weather-desc"></p>
-            <h1 class="location"></h1>
-            <p class="time"></p>
-          </div>
-          <div class="icon-container">
-            <img class="weather-icon" src="" />
-          </div>
-        </div>
-        <div class="weather-data-bottom">
-          <div class="temperature-container">
-            <span class="temperature"></span>
-            <span class="unit">°C</span>
-          </div>
-          <div class="condition-info">
-            <div class="feels-like-container">
-              <p class="feels-like"></p>
-              <span class="feels-like-unit">°C</span>
+      <!-----Main Section----->
+      <main>
+        <section id="weather-data">
+          <div class="weather-data-top">
+            <div class="weather-details">
+              <p class="weather-desc"></p>
+              <h1 class="location"></h1>
+              <p class="time"></p>
             </div>
-            <p class="humidity"></p>
-            <p class="wind-speed"></p>
+            <div class="icon-container">
+              <img class="weather-icon" src="" />
+            </div>
+          </div>
+          <div class="weather-data-bottom">
+            <div class="temperature-container">
+              <span class="temperature"></span>
+              <span class="unit">°C</span>
+            </div>
+            <div class="condition-info">
+              <div class="feels-like-container">
+                <p class="feels-like"></p>
+                <span class="feels-like-unit">°C</span>
+              </div>
+              <p class="humidity"></p>
+              <p class="wind-speed"></p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-----Forecast Section----->
+      <section id="forecast">
+        <div class="forecast-container">
+          <div class="forecast-buttons">
+            <button class="forecast-button daily selected-button">Daily</button>
+            <button class="forecast-button hourly">Hourly</button>
+          </div>
+          <div class="forecast-arrows">
+            <i class="fas fa-chevron-left arrow"></i>
+            <div id="one" class="circle circle-active"></div>
+            <div id="two" class="circle"></div>
+            <div id="three" class="circle"></div>
+            <i class="fas fa-chevron-right arrow"></i>
           </div>
         </div>
+        <div class="daily-forecast"></div>
+        <div class="hourly-forecast one"></div>
+        <div class="hourly-forecast two"></div>
+        <div class="hourly-forecast three"></div>
       </section>
-    </main>
-
-    <!-----Forecast Section----->
-    <section id="forecast">
-      <div class="forecast-container">
-        <div class="forecast-buttons">
-          <button class="forecast-button daily selected-button">Daily</button>
-          <button class="forecast-button hourly">Hourly</button>
-        </div>
-        <div class="forecast-arrows">
-          <i class="fas fa-chevron-left arrow"></i>
-          <div id="one" class="circle circle-active"></div>
-          <div id="two" class="circle"></div>
-          <div id="three" class="circle"></div>
-          <i class="fas fa-chevron-right arrow"></i>
-        </div>
-      </div>
-      <div class="daily-forecast"></div>
-      <div class="hourly-forecast one"></div>
-      <div class="hourly-forecast two"></div>
-      <div class="hourly-forecast three"></div>
-    </section>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
