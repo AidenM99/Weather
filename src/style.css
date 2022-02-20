@@ -130,7 +130,7 @@ button {
 
 /*****Main Section*****/
 #weather-data {
-  margin: 0 5%;
+  margin: 4rem 5% 2rem;
 }
 
 .weather-data-top {
@@ -315,6 +315,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5% 0;
   }
 
   .weather-data-top {
