@@ -165,7 +165,7 @@ button {
 }
 
 .feels-like-container {
-  display: flex;
+  margin: 0.4375rem 0;
 }
 
 .feels-like {
@@ -177,6 +177,7 @@ button {
   font-size: 0.65rem;
   font-weight: bold;
   margin: 0.3125rem 0 0 0;
+  vertical-align: 50%;
 }
 
 .condition-info {
