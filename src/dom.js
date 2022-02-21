@@ -158,9 +158,9 @@ const domFunctions = (() => {
 
   function renderHourlyForecast(data) {
     for (let i = 1; i < 25; i++) {
-      const HourlyForecastOne = document.querySelector('.one');
-      const HourlyForecastTwo = document.querySelector('.two');
-      const HourlyForecastThree = document.querySelector('.three');
+      const hourlyForecastOne = document.querySelector('.one');
+      const hourlyForecastTwo = document.querySelector('.two');
+      const hourlyForecastThree = document.querySelector('.three');
 
       const forecast = document.createElement('div');
       forecast.classList.add('forecast');
@@ -183,11 +183,11 @@ const domFunctions = (() => {
 
       // If hourly forecast container is holding 8 items, append to the next one
       if (i < 9) {
-        HourlyForecastOne.appendChild(forecast);
+        hourlyForecastOne.appendChild(forecast);
       } else if (i < 17 && i >= 9) {
-        HourlyForecastTwo.appendChild(forecast);
+        hourlyForecastTwo.appendChild(forecast);
       } else {
-        HourlyForecastThree.appendChild(forecast);
+        hourlyForecastThree.appendChild(forecast);
       }
     }
   }
