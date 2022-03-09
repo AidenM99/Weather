@@ -1,11 +1,16 @@
-A weather app using the Open Weather Map API.
-
-
 ## Weather App
+A weather app made using the Open Weather Map API.
+
 - Live Demo: https://aidenm99.github.io/Weather-App/
 
-### Features
+## Technologies Used
+This project was built using:
+- HTML5
+- CSS
+- JavaScript
+- Webpack
 
+## Features
 - Search for a location by city name
 - Display the daily forecast for the next 7 days for the chosen location
 - Display the hourly forecast for the next 24 hours for the chosen location
@@ -14,5 +19,19 @@ A weather app using the Open Weather Map API.
 - Switch between celsius and farenheit
 - Multiple backgrounds depending on the time of day in a given location
 
+#Screenshots
+Dawn, daily forecast, celsius
+
 ![](./dist/images/WeatherApp.png)
+
+Midday, hourly forecast, celsius
+
 ![](./dist/images/WeatherApp2.png)
+
+Dusk, daily forecast, farenheit
+
+![](./dist/images/WeatherApp3.png)
+
+Night, hourly forecast, farenheit
+
+![](./dist/images/WeatherApp4.png)
