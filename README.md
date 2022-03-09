@@ -35,3 +35,7 @@ Dusk, daily forecast, farenheit
 Night, hourly forecast, farenheit
 
 ![](./dist/images/WeatherApp4.png)
+
+Mobile view
+
+![](./dist/images/WeatherApp5.png)
