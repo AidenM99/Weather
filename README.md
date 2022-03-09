@@ -19,7 +19,7 @@ This project was built using:
 - Switch between celsius and farenheit
 - Multiple backgrounds depending on the time of day in a given location
 
-#Screenshots
+## Screenshots
 Dawn, daily forecast, celsius
 
 ![](./dist/images/WeatherApp.png)
