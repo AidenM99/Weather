@@ -22,7 +22,7 @@ This project was built using:
 ## Screenshots
 Dawn, daily forecast, celsius
 
-![](./dist/images/WeatherApp.png)
+![](./dist/images/WeatherApp1.png)
 
 Midday, hourly forecast, celsius
 
