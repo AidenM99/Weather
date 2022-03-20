@@ -266,8 +266,6 @@ const domFunctions = (() => {
     const invalidSearch = document.querySelector('.invalid-search-container');
 
     invalidSearch.style.visibility = 'visible';
-
-    setTimeout(hideError, 2000);
   }
 
   function loadSampleData() {
@@ -292,6 +290,7 @@ const domFunctions = (() => {
   return {
     forecastNavController,
     displayError,
+    hideError,
     renderData,
     loadPage,
   };

@@ -11,6 +11,7 @@ async function getWeatherData(lat, lon, city, unit = 'metric') {
 
     domFunctions.renderData(weatherData, city);
     domFunctions.forecastNavController();
+    domFunctions.hideError();
   } catch (err) {
     domFunctions.displayError();
   }
