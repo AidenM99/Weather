@@ -1,4 +1,4 @@
-import getCity from './api';
+import { findCity, getCityData } from './api';
 import { formatText, getDate } from './app';
 
 const domFunctions = (() => {
@@ -32,13 +32,13 @@ const domFunctions = (() => {
     const searchIcon = document.querySelector('.search-button');
 
     search.addEventListener('search', () => {
-      getCity(search.value, getUnit());
+      getCityData(search.value, getUnit());
       clearForecast();
       search.value = '';
     });
 
     searchIcon.addEventListener('click', () => {
-      getCity(search.value, getUnit());
+      getCityData(search.value, getUnit());
       clearForecast();
       search.value = '';
     });
@@ -255,7 +255,7 @@ const domFunctions = (() => {
       feelsLikeUnit.textContent = '°F';
     }
 
-    getCity(location, getUnit());
+    getCityData(location, getUnit());
     clearForecast();
   }
 
@@ -267,6 +267,10 @@ const domFunctions = (() => {
     });
   }
 
+  function loadSampleData() {
+    getCityData('London', getUnit());
+  }
+
   function renderData(data, city) {
     renderWeatherData(data, city);
     renderDailyForecast(data);
@@ -275,7 +279,9 @@ const domFunctions = (() => {
 
   function loadPage() {
     citySearch();
-    getCity('London', getUnit());
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(findCity, loadSampleData);
+    }
     buttonController();
     temperatureController();
   }
