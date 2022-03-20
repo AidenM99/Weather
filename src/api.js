@@ -37,10 +37,10 @@ async function findCity(data) {
   }
 }
 
-async function getCityData(city, unit) {
+async function getCityData(location, unit) {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=64dc30bda68554f9c02fcdab98258346`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=64dc30bda68554f9c02fcdab98258346`,
       { mode: 'cors' }
     );
 
@@ -49,6 +49,8 @@ async function getCityData(city, unit) {
     const x = cityData.coord.lat;
 
     const y = cityData.coord.lon;
+
+    const city = cityData.name;
 
     getWeatherData(x, y, city, unit);
   } catch (err) {

@@ -201,7 +201,7 @@ const domFunctions = (() => {
     weatherDesc.textContent = formatText(data.current.weather[0].description);
 
     const location = document.querySelector('.location');
-    location.textContent = formatText(city);
+    location.textContent = city;
 
     const temperature = document.querySelector('.temperature');
     temperature.textContent = Math.round(data.current.temp);
