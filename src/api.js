@@ -51,7 +51,6 @@ async function getCityData(city, unit) {
 
     getWeatherData(x, y, city, unit);
   } catch (err) {
-    // domFunctions.reportSearchError();
     domFunctions.displayError();
   }
 }

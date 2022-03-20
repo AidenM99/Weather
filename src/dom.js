@@ -44,17 +44,6 @@ const domFunctions = (() => {
     });
   }
 
-  // If API cannot find city name
-  function reportSearchError() {
-    const search = document.getElementById('search');
-
-    search.setCustomValidity('Please enter a valid city');
-    search.reportValidity();
-    search.addEventListener('input', () => {
-      search.setCustomValidity('');
-    });
-  }
-
   // Find which circle is highlighted to determine hour range to display for hourly forecast
   function getActiveButton() {
     const circleButton = document.querySelectorAll('.circle');
@@ -302,7 +291,6 @@ const domFunctions = (() => {
 
   return {
     forecastNavController,
-    reportSearchError,
     displayError,
     renderData,
     loadPage,
