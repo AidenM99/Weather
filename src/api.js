@@ -12,7 +12,7 @@ async function getWeatherData(lat, lon, city, unit = 'metric') {
     domFunctions.renderData(weatherData, city);
     domFunctions.forecastNavController();
   } catch (err) {
-    console.log(err);
+    domFunctions.displayError();
   }
 }
 
@@ -32,7 +32,7 @@ async function findCity(data) {
 
     getWeatherData(lat, lon, city);
   } catch (err) {
-    console.log(err);
+    domFunctions.displayError();
   }
 }
 
@@ -51,8 +51,8 @@ async function getCityData(city, unit) {
 
     getWeatherData(x, y, city, unit);
   } catch (err) {
-    domFunctions.reportSearchError();
-    console.log(err);
+    // domFunctions.reportSearchError();
+    domFunctions.displayError();
   }
 }
 

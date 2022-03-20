@@ -267,6 +267,20 @@ const domFunctions = (() => {
     });
   }
 
+  function hideError() {
+    const invalidSearch = document.querySelector('.invalid-search-container');
+
+    invalidSearch.style.visibility = 'hidden';
+  }
+
+  function displayError() {
+    const invalidSearch = document.querySelector('.invalid-search-container');
+
+    invalidSearch.style.visibility = 'visible';
+
+    setTimeout(hideError, 2000);
+  }
+
   function loadSampleData() {
     getCityData('London', getUnit());
   }
@@ -289,6 +303,7 @@ const domFunctions = (() => {
   return {
     forecastNavController,
     reportSearchError,
+    displayError,
     renderData,
     loadPage,
   };
