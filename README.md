@@ -1,7 +1,7 @@
 ## Weather App
 A weather app made using the Open Weather Map API.
 
-- Live Demo: https://aidenm99.github.io/Weather-App/
+Live Demo: https://aidenm99.github.io/Weather-App/
 
 ## Technologies Used
 This project was built using:
