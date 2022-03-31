@@ -16,7 +16,7 @@ This project was built using:
 - Display the hourly forecast for the next 24 hours for the chosen location
 - Show the current time and date for the target location
 - A description of the forecast and unique weather symbols to match
-- Switch between celsius and farenheit
+- Switch between Celsius (C°) and Fahrenheit (F°)
 - Multiple backgrounds depending on the time of day in a given location
 
 ## Screenshots
