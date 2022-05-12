@@ -123,7 +123,7 @@ const domFunctions = (() => {
       const forecast = document.createElement('div');
       forecast.classList.add('forecast');
 
-      const day = document.createElement('h3');
+      const day = document.createElement('h2');
       day.textContent = getDate(data.daily[i].dt, data.timezone_offset).slice(
         0,
         3
@@ -132,6 +132,7 @@ const domFunctions = (() => {
       const icon = document.createElement('img');
       icon.classList.add('weather-icon');
       icon.src = `https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@2x.png`;
+      icon.alt = 'weather-icon';
 
       const temp = document.createElement('p');
       temp.textContent = `${Math.round(data.daily[i].temp.max)}°/${Math.round(
@@ -154,7 +155,7 @@ const domFunctions = (() => {
       const forecast = document.createElement('div');
       forecast.classList.add('forecast');
 
-      const day = document.createElement('h3');
+      const day = document.createElement('h2');
       day.textContent = getDate(data.hourly[i].dt, data.timezone_offset).slice(
         17
       );
@@ -162,6 +163,7 @@ const domFunctions = (() => {
       const icon = document.createElement('img');
       icon.classList.add('weather-icon');
       icon.src = `https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@2x.png`;
+      icon.alt = 'weather-icon';
 
       const temp = document.createElement('p');
       temp.textContent = `${Math.round(data.hourly[i].temp)}°`;
@@ -186,13 +188,13 @@ const domFunctions = (() => {
     const body = document.getElementsByTagName('body')[0];
 
     if (time > 5 && time < 12) {
-      body.style.backgroundImage = 'url(images/background-dawn.png)';
+      body.style.backgroundImage = 'url(images/background-dawn.webp)';
     } else if (time > 11 && time < 18) {
-      body.style.backgroundImage = 'url(images/background-day.jpg)';
+      body.style.backgroundImage = 'url(images/background-day.webp)';
     } else if (time > 17 && time < 22) {
-      body.style.backgroundImage = 'url(images/background-dusk.png)';
+      body.style.backgroundImage = 'url(images/background-dusk.webp)';
     } else {
-      body.style.backgroundImage = 'url(images/background-night.png)';
+      body.style.backgroundImage = 'url(images/background-night.webp)';
     }
   }
 
