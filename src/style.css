@@ -266,7 +266,7 @@ button {
   display: flex;
 }
 
-.forecast > h3 {
+.forecast > h2 {
   font-size: 1.3rem;
   margin: 0;
 }
