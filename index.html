@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="A weather application that can display accurate daily and hourly weather data."
+    />
     <script
       src="https://kit.fontawesome.com/8f40f8a960.js"
       crossorigin="anonymous"
@@ -27,7 +31,11 @@
               placeholder="City Search"
               autocomplete="off"
             />
-            <button type="submit" class="search-button">
+            <button
+              type="button"
+              class="search-button"
+              aria-label="search-button"
+            >
               <i class="fa fa-search"></i>
             </button>
           </div>
@@ -47,7 +55,7 @@
               <p class="time"></p>
             </div>
             <div class="icon-container">
-              <img class="weather-icon" src="" />
+              <img class="weather-icon" src="" alt="weather-icon" />
             </div>
           </div>
           <div class="weather-data-bottom">
